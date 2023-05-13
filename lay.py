@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 # df = pd.read_excel("C:/temp/streamlit/gpt.xlsx", index_col=0)
-df = pd.read_excel("C:/temp/streamlit/gpt_p.xlsx", index_col=0)
+df = pd.read_excel("gpt_p.xlsx", index_col=0)
 
 # 타이틀 출력
 st.title("🏢 기업 토픽 🏢")
