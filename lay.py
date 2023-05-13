@@ -7,6 +7,8 @@ df_cnum = pd.read_excel("cname.xlsx", index_col=0)
 # 타이틀 출력
 st.title("🏢 기업 토픽 🏢")
 
+st.subheader("너 뭐 돼?🤷🏻‍♀️")
+
 #공백 추가
 st.markdown("&nbsp;\n\n\n\n&nbsp;")
 
