@@ -104,13 +104,15 @@ with col1:
             cnum = df_cnum.loc[search_query , '종목코드']
             
             # 최근 6개월 주가 데이터 가져오기
-            df_price = stock.get_market_ohlcv_by_date(previous_date, current_date, cnum)
+            df_stock = stock.get_market_ohlcv_by_date(previous_date, current_date, cnum)
             
             # 주가 그래프 그리기
             fig_price = go.Figure()
-            fig_price.add_trace(go.Scatter(x=df_price.index, y=df_price['종가'], name='종가'))
+            fig_price.add_trace(go.Scatter(x=df_stock.index, y=df_stock['종가'], name='종가'))
             fig_price.update_layout(title='최근 6개월 주가')
             st.plotly_chart(fig_price)
+            st.write("종합 정보")
+            st.write(df_stock)
           
 # 두 번째 열에 거래량 그래프 추가
 with col2:
@@ -120,11 +122,8 @@ with col2:
         if not matching_columns22:
             st.write("검색 결과가 없습니다.")
         else:
-            # 최근 6개월 거래량 데이터 가져오기
-            df_volume = stock.get_market_trading_volume_by_date(previous_date, current_date, cnum)
-            
             # 거래량 그래프 그리기
             fig_volume = go.Figure()
-            fig_volume.add_trace(go.Bar(x=df_volume.index, y=df_volume, name='거래량'))
+            fig_volume.add_trace(go.Bar(x=df_stock.index, y=df_stock['거래량'], name='거래량'))
             fig_volume.update_layout(title='최근 6개월 거래량')
             st.plotly_chart(fig_volume)
