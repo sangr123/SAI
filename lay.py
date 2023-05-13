@@ -99,11 +99,13 @@ col1, col2 = st.columns(2)
 
 # 첫 번째 열에 주가 그래프 추가
 with col1:
-    st.plotly_chart(fig_price)
+    if matching_columns22:
+       st.plotly_chart(fig_price)
 
 # 두 번째 열에 거래량 그래프 추가
 with col2:
-    st.plotly_chart(fig_volume)
+    if matching_columns22:
+       st.plotly_chart(fig_volume)
 
 
 
